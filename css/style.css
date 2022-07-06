@@ -1,0 +1,61 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    font-family: sans-serif;
+}
+img{
+    display: block;
+    max-width: 100%;
+}
+ul,
+ol,
+menu{
+    list-style: none;
+}
+a{
+    color: currentColor;
+    display: inline-block;
+    text-decoration: none;
+}
+:root{
+    --bg-col: #141922;
+    --bg-nav-col: #080B12;
+    --bg-tool-col: #282828;
+    --bg-side-col: #000;
+    --fg-col: #fff;
+    --fg-deselect: #080B12;
+    --fg-select-decoration: #ADFF2F;
+}
+/* 
+    Layout
+*/
+body{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg-col);
+}
+/* App */
+.app{
+    flex-grow: 1;
+    flex-basis: 0;
+    display: flex;
+}
+/* Side Header */
+.main-header{
+    min-width: 230px;
+    background-color: var(--bg-side-col);
+}
+.main-container{
+    flex-grow: 1;
+    flex-basis: 0;
+    background-color: var(--bg-col);
+}
+/* Toolabr */
+.toolbar{
+    min-height: 90px;
+    background-color: var(--bg-tool-col);
+}
