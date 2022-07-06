@@ -1,10 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap');
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 html{
-    font-family: sans-serif;
+    font-family: 'Open Sans', Verdana, sans-serif;
 }
 img{
     display: block;
@@ -26,7 +27,7 @@ a{
     --bg-tool-col: #282828;
     --bg-side-col: #000;
     --fg-col: #fff;
-    --fg-deselect: #080B12;
+    --fg-deselect: #717171;
     --fg-select-decoration: #ADFF2F;
 }
 /* 
@@ -42,17 +43,35 @@ body{
     display: flex;
     flex-wrap: wrap;
 }
-.toolbar .row > .col{
-    padding: 20px;
-    border: 2px solid var(--fg-col);
-}
 .col{
     display: flex;
     flex-direction: column;
 }
+/* 
+    Debug 
+*/
+.toolbar .row > .col{
+    padding: 20px;
+    border: 2px solid var(--fg-col);
+}
+/* 
 .col > *{
     padding: 20px;
     border: 2px solid var(--fg-select-decoration);
+} */
+/* 
+    Components
+*/
+.upcase{
+    text-transform: uppercase;
+}
+.button{
+    padding: 0 2.5rem;
+    line-height: 2.5rem;
+    border: 2px solid currentColor;
+}
+.round{
+    border-radius: 1.3rem;
 }
 /* 
     App
@@ -61,10 +80,11 @@ body{
     flex-grow: 1;
     flex-basis: 0;
     display: flex;
+    overflow-y: auto;
 }
 /* Side Header */
 .main-header{
-    min-width: 50px;
+    max-width: 50px;
     background-color: var(--bg-side-col);
 }
 .main-header > .row{
@@ -74,24 +94,68 @@ body{
 .main-header > .row .col{
     justify-content: space-between;
 }
+/* Section Nav */
+.main-header{
+    color: var(--fg-col);
+    padding: 5px 11px 10px;
+}
+.main-header .section-nav .logo{
+    display: flex;
+    padding-bottom: 1rem;
+    justify-content: center;
+}
+.logo-lg{
+    display: none;
+}
+.main-header .side-nav .nav-menu{
+    gap: 0.75rem;
+    justify-content: center;
+}
+.side-nav .nav-menu .item-link{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.item-link .item-link-txt{
+    display: none;
+    color: currentColor;
+}
+.main-header .section-nav .nav-list{
+    display: none;
+}
+.main-header .section-account .row{
+    align-items: center;
+    justify-content: center;
+}
+.main-header .section-account .col{
+    gap: 1.3rem;
+    align-items: center;
+}
+.main-header .section-account .profile img{
+    height: 25px;
+    padding: 0 2px;
+    border-radius: 50%;
+    color: var(--fg-col);
+    background-color: var(--fg-deselect);
+}
 /* Header App */
 .header-plan{
     display: flex;
-    padding: 20px 5px;
+    padding: 0 5px;
     min-height: 90px;
+    align-items: center;
+    color: var(--fg-col);
     background-color: var(--bg-nav-col);
 }
 .plan{
     margin-left: auto;
-    padding: 0 40px;
-    border: 2px solid var(--fg-col);
-    border-radius: 20px;
+    font-weight: 600;
+    text-align: center;
 }
 /* Main Container  */
 .main-container{
     flex-grow: 1;
     flex-basis: 0;
-    overflow-y: auto;
     background-color: var(--bg-col);
 }
 /* 
@@ -106,12 +170,12 @@ body{
     align-items: center;
 }
 .toolbar .row .col{
-    min-width: 50px;
     flex-basis: 0;
+    min-width: 50px;
 }
 .toolbar .player{
-    flex-basis: 0;
     flex-grow: 1;
+    flex-basis: 0;
 }
 /* 
     Responsive 
@@ -124,6 +188,39 @@ body{
     .main-header > .row{
         justify-content: flex-start;
     }
+    .row.nav-menu{
+        flex-direction: column;
+    }
+    .main-header .section-nav .logo{
+        width: 100%;
+        justify-content: flex-start;
+    }
+    .logo-lg{
+        display: block;
+    }
+    .logo-sm{
+        display: none;
+    }
+    .item-link .item-link-txt{
+        display: inline-block;
+    }
+    .main-header .side-nav .nav-menu{
+        justify-content: flex-start;
+    }
+    .side-nav .nav-menu .item-link{
+        gap: 1rem;
+        justify-content: flex-start;
+    }
+    .main-header .section-account .row{
+        gap: 1rem;
+        justify-content: flex-start;
+    }
+    .main-header .section-account .col{
+        align-items: flex-start;
+    }
+    /* 
+        Toolabr
+     */
     .toolbar .row .col{
         min-width: 180px;
     }
