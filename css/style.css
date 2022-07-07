@@ -36,7 +36,7 @@ button{
     --fg-select-decoration: #ADFF2F;
     --deselect-item: 0.7;
 }
-/* 
+/*
     Layout
 */
 body{
@@ -52,7 +52,7 @@ body{
     display: flex;
     flex-direction: column;
 }
-/* 
+/*
     Components
 */
 .upcase{
@@ -68,6 +68,17 @@ body{
 .side-bar .side-nav .nav-menu .item-link.active{
     opacity: 1;
     font-weight: bold;
+}
+.main-content .active::after{
+    display: block;
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 2rem;
+    height: 3px;
+    transform: translateX(-50%);
+    background-color: var(--fg-select-decoration);
 }
 .player .bar{
     height: 4px;
@@ -103,7 +114,7 @@ body{
         width: 0%;
     }
 }
-/* 
+/*
     App
  */
 .app{
@@ -144,7 +155,7 @@ body{
     font-size: 13px;
     padding-top: 5px;
     padding-bottom: 5px;
-    letter-spacing: 1px;    
+    letter-spacing: 1px;
     align-items: center;
     justify-content: center;
 }
@@ -192,9 +203,30 @@ body{
 .main-container{
     flex-grow: 1;
     flex-basis: 0;
+    color: var(--fg-col);
     background-color: var(--bg-col);
 }
-/* 
+.container{
+    padding: 0 20px;
+}
+.main-content .container > .row{
+    justify-content: center;
+}
+.main-content .main-content-navlist{
+    row-gap: 40px;
+    column-gap: 20px;
+    padding-top: 20px;
+    align-items: center;
+    justify-content: center;
+}
+.main-content .main-content-navlist .list-item{
+    position: relative;
+    padding-bottom: 5px;
+}
+.main-content .main-content-navlist .item-link{
+    opacity: var(--deselect-item);
+}
+/*
     Toolabr
 */
 .toolbar{
@@ -247,7 +279,7 @@ body{
 }
 /* Player */
 .toolbar .player > .row{
-    justify-content: center;   
+    justify-content: center;
 }
 .toolbar .player > .row > .col {
     gap: 1rem;
@@ -288,12 +320,12 @@ body{
 .toolbar .control .slide-control-volume{
     position: relative;
 }
-/* 
-    Responsive 
+/*
+    Responsive
 */
 @media screen and (min-width: 551px){
     /* Components */
-    .active::before{
+    .side-bar .active::before{
         display: block;
         content: '';
         position: absolute;
@@ -389,7 +421,7 @@ body{
         display: block;
     }
     /* Side Bar Display Off and On */
-    /* 
+    /*
         Toolabr
      */
      .toolbar > .row > .col{
