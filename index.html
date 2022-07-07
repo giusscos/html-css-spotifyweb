@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="./img/favicon.ico" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/20d53e2fb1.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./css/style.css">
     <title>
         Spotify
@@ -100,9 +101,11 @@
         </header><!-- End Side Header -->
         <div class="main-container"><!-- Main Container -->
             <header class="header-plan">
-                <a class="plan button cta-link round upcase" href="#">
-                    Effettua l'upgrade
-                </a>
+                <div class="plan-container">
+                    <a class="plan button cta-link round upcase" href="#">
+                        Effettua l'upgrade
+                    </a>
+                </div>
             </header>
             <main class="main-content">
                 <!-- Content -->
@@ -112,13 +115,40 @@
     <aside class="toolbar"><!-- Toolbar Section -->
        <div class="row">
             <div class="col who-is">
-                <!-- Content -->
-            </div>
+                <div class="row">
+                    <div class="col song-img-container">
+                        <img class="song-img" src="./img/sinister.jpeg" alt="song img">
+                    </div>
+                    <div class="col info-song-container">
+                        <ul class="info-song-list">
+                            <li class="info-song-item author-name">Sinister</li>
+                            <li class="info-song-item song-name">Brano Nome</li>
+                        </ul>
+                    </div>
+                    <div class="col saves-container">
+                        <i class="fa-regular fa-heart"></i>
+                        <i class="fa-regular fa-folder"></i>
+                    </div>
+                </div>
+            </div><!-- End Col Who-is-->
             <div class="col player">
                 <!-- Content -->
             </div>
             <div class="col control">
-                <!-- Content -->
+                <div class="row">
+                    <div class="col icon-control">
+                        <i class="fa-solid fa-list"></i>
+                    </div>
+                    <div class="col icon-control">
+                        <i class="fa-solid fa-tv"></i>
+                    </div>
+                    <div class="col icon-control">
+                        <i class="fa-solid fa-volume-high"></i>
+                    </div>
+                    <div class="col slide-control-volume">
+                        <span class="bar slide-active"></span>
+                    </div>
+                </div>
             </div>
        </div><!-- End Row -->
     </aside><!-- End Tollbar Section -->
