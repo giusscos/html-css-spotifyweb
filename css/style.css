@@ -53,19 +53,6 @@ body{
     flex-direction: column;
 }
 /* 
-    Debug 
-*/
-/*
-.toolbar .row > .col{
-    padding: 10px;
-    border: 2px solid var(--fg-col);
-}
- 
-.col > *{
-    padding: 20px;
-    border: 2px solid var(--fg-select-decoration);
-} */
-/* 
     Components
 */
 .upcase{
@@ -82,11 +69,17 @@ body{
     opacity: 1;
     font-weight: bold;
 }
+.player .bar{
+    height: 4px;
+    width: 100%;
+    border-radius: 3px;
+    background-color: var(--fg-deselect);
+}
 .control .bar{
     height: 4px;
     width: 85px;
-    background-color: var(--fg-deselect);
     border-radius: 3px;
+    background-color: var(--fg-deselect);
 }
 .bar.slide-active::after{
     position: absolute;
@@ -215,12 +208,12 @@ body{
     align-items: center;
     justify-content: space-between;
 }
-.toolbar > .row > .col{
-    flex-basis: 230px;
-}
 .toolbar > .row > .player{
     flex-basis: 40%;
     min-width: 190px;
+}
+.toolbar > .row > .col{
+    flex-basis: 170px;
 }
 /* who-is */
 .toolbar .who-is{
@@ -228,11 +221,12 @@ body{
 }
 .toolbar .who-is > .row{
     padding-left: 10px;
+    padding-right: 40px;
     justify-content: flex-start;
 }
 .toolbar .who-is .song-img-container{
     flex-shrink: 0;
-    max-height: 29px;
+    max-height: 40px;
     aspect-ratio: 1/1;
 }
 .toolbar .who-is .info-song-list{
@@ -252,14 +246,45 @@ body{
     opacity: var(--deselect-item);
 }
 /* Player */
-
+.toolbar .player > .row{
+    justify-content: center;   
+}
+.toolbar .player > .row > .col {
+    gap: 1rem;
+}
+.toolbar .player .button-pause{
+    position: relative;
+}
+.toolbar .player .player-icon-control > .pause{
+    padding: 2px 3px 2px 5.5px;
+    margin: 0 10px;
+    border: 4px solid;
+    font-size: 18px;
+    border-radius: 50%;
+}
+.toolbar .player .player-icon-control > i{
+    font-size: 1rem;
+}
+.toolbar .player .player-button-control{
+    gap: 20px;
+    justify-content: center;
+}
+.toolbar .player .player-buttons-control{
+    flex-basis: 100%;
+}
+.toolbar .player .player-slide-control{
+    gap: 10px;
+    font-size: 10px;
+}
 /* Controls */
 .toolbar .control > .row{
     gap: 8px;
     font-size: 0.85rem;
+    padding-left: 20px;
     padding-right: 10px;
     justify-content: flex-end;
 }
+.toolbar .player .player-slide-control,
 .toolbar .control .slide-control-volume{
     position: relative;
 }
@@ -367,8 +392,23 @@ body{
     /* 
         Toolabr
      */
+     .toolbar > .row > .col{
+         flex-basis: 230px;
+    }
      /* who is */
+     .toolbar .who-is > .row{
+        padding-right: 5px;
+    }
      .toolbar .who-is .song-img-container{
         max-height: 42px;
      }
+     /* player */
+     .toolbar > .row > .player{
+        flex-basis: 40%;
+        max-width: 520px;
+     }
+     /* control */
+     .toolbar .control > .row{
+        padding-left: 5px;
+    }
 }
