@@ -12,85 +12,90 @@
 </head>
 <body>
     <div class="section app"><!-- Web App Section -->
-        <header class="main-header"><!-- Side Header (Logo / Navigation / Playlist) -->
+        <header class="side-bar"><!-- Side Header (Logo / Navigation / Playlist) -->
             <div class="row"> 
                 <div class="col">
-                    <div class="section-nav">
-                        <div class="logo">
-                            <img class="logo-sm" height="20" src="./img/logo-small.svg" alt="spotify logo">
-                            <img class="logo-lg" height="20" src="./img/logo.svg" alt="spotify logo">
-                        </div>
-                        <nav class="side-nav"><!-- Main Nav -->
-                            <menu class="row nav-menu"><!-- Nav Menu -->
-                                <li class="col menu-item">
-                                    <a class="item-link" href="#">
-                                        <img height="20" src="./img/home.svg" alt="home button">
-                                        <span class="item-link-txt">
-                                            Home
-                                        </span>
-                                    </a>
-                                </li>
-                                <li class="col menu-item">
-                                    <a class="item-link" href="#">
-                                        <img height="20" src="./img/search.svg" alt="search button">
-                                        <span class="item-link-txt">
-                                            Search
-                                        </span>
-                                    </a>
-                                </li>
-                                <li class="col menu-item">
-                                    <a class="item-link" href="#">
-                                        <img height="20" src="./img/libreria.svg" alt="shelf button">
-                                        <span class="item-link-txt">
-                                            La tua Libreria
-                                        </span>
-                                    </a>
-                                </li>
-                            </menu><!-- End Nav Menu -->
-                            <ul class="nav-list"><!-- Nav List (Playlist) -->
-                                <li class="menu-item">
-                                    <span>
-                                        Playlist
-                                    </span>
-                                </li>
-                                <li class="menu-item">
-                                    <a class="item-link add-playlist" href="#">
-                                        <img height="20" src="./img/" alt="home button">
-                                        Crea Playlist
-                                    </a>
-                                </li>
-                                <li class="menu-item">
-                                    <a class="item-link" href="#">
-                                        Nome Playlist
-                                    </a>
-                                </li>
-                                <li class="menu-item">
-                                    <a class="item-link" href="#">
-                                        Nome Playlist
-                                    </a>
-                                </li>
-                            </ul><!-- End Nav List (Playlist) -->
-                        </nav><!-- End Main Nav -->
-                    </div><!-- End Side Navigation -->
-                    <div class="section-account">
-                        <div class="row">
-                            <div class="col">
-                                <a class="row download item-link" href="#">
-                                    <img height="20" src="./img/download.svg" alt="download button"> 
+                    <div class="logo"><!-- Logo -->
+                        <img class="logo-sm" height="28" src="./img/logo-small.svg" alt="spotify logo">
+                        <img class="logo-lg" height="40" src="./img/logo.svg" alt="spotify logo">
+                    </div><!-- End Logo -->
+                    <nav class="row side-nav"><!-- Main Nav -->
+                        <menu class="col nav-menu"><!-- Nav Menu -->
+                            <li class="menu-item">
+                                <a class="item-link active" href="#">
+                                    <img height="22" src="./img/home.svg" alt="home button">
                                     <span class="item-link-txt">
-                                        Installa app
+                                        Home
                                     </span>
                                 </a>
-                                <div class="row profile item-link">
-                                    <img height="20" src="./img/profile.svg" alt="profile button">
+                            </li>
+                            <li class="menu-item">
+                                <a class="item-link" href="#">
+                                    <img height="22" src="./img/search.svg" alt="search button">
                                     <span class="item-link-txt">
-                                        Giusscos
+                                        Search
                                     </span>
-                                </div>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a class="item-link" href="#">
+                                    <img height="22" src="./img/libreria.svg" alt="shelf button">
+                                    <span class="item-link-txt">
+                                        La tua Libreria
+                                    </span>
+                                </a>
+                            </li>
+                        </menu><!-- End Nav Menu -->
+                    </nav><!-- End Main Nav -->
+                    <div class="playlist"><!-- Creation Playlist -->
+                        <div class="playlist-head">
+                            <div class="head-title upcase">
+                                Playlist
+                            </div>
+                            <button class="head-button">
+                                Crea Playlist
+                            </button>
+                        </div><!-- End Creation Playlist -->
+                        <ul class="side-list playlist-list"><!-- Playlist -->
+                            <li class="menu-item">
+                                <a class="item-link" href="#">
+                                    Nome Playlist
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a class="item-link" href="#">
+                                    Nome Playlist
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a class="item-link" href="#">
+                                    Nome Playlist
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a class="item-link" href="#">
+                                    Nome Playlist
+                                </a>
+                            </li>
+                        </ul><!-- End List (Playlist) -->
+                    </div><!-- End Playlist  -->
+                    <div class="row account"><!-- Row Account -->
+                        <div class="col">
+                            <a class="row download item-link" href="#">
+                                <img height="12" src="./img/download.svg" alt="download button"> 
+                                <span class="item-link-txt separe">
+                                    Installa app
+                                </span>
+                            </a>
+                            <div class="row profile item-link">
+                                <img height="22" src="./img/profile.svg" alt="profile button">
+                                <span class="item-link-txt">
+                                    Giusscos
+                                </span>
                             </div>
                         </div>
-                    </div><!-- End Side Account -->
-                </div>
+                    </div><!-- End Row Account -->
+                </div><!-- End Col -->
             </div><!-- End Row -->
         </header><!-- End Side Header -->
         <div class="main-container"><!-- Main Container -->
