@@ -21,6 +21,11 @@ a{
     display: inline-block;
     text-decoration: none;
 }
+button{
+    border: 0;
+    color: currentColor;
+    background-color: transparent;
+}
 :root{
     --bg-col: #141922;
     --bg-nav-col: #080B12;
@@ -73,71 +78,75 @@ body{
 .round{
     border-radius: 1.3rem;
 }
+.side-bar .side-nav .nav-menu .item-link.active{
+    opacity: 1;
+    font-weight: bold;
+}
 /* 
     App
  */
 .app{
     flex-grow: 1;
-    flex-basis: 0;
     display: flex;
     overflow-y: auto;
 }
 /* Side Header */
-.main-header{
-    max-width: 50px;
+.app .side-bar{
+    display: flex;
+    flex-basis: 50px;
+    padding-top: 5px;
+    color: var(--fg-col);
     background-color: var(--bg-side-col);
 }
-.main-header > .row{
-    height: 100%;
+.app .side-bar > .row{
+    flex-grow: 1;
     justify-content: center;
 }
-.main-header > .row .col{
-    justify-content: space-between;
+.side-bar > .row .col{
+    align-items: center;
 }
-/* Section Nav */
-.main-header{
-    color: var(--fg-col);
-    padding: 5px 11px 10px;
-}
-.main-header .section-nav .logo{
-    display: flex;
+.side-bar .logo{
     padding-bottom: 1rem;
-    justify-content: center;
 }
-.logo-lg{
-    display: none;
+.side-bar .side-nav{
+    flex-grow: 1;
 }
-.main-header .side-nav .nav-menu{
-    gap: 0.75rem;
-    justify-content: center;
+/* Nav Menu */
+.side-bar .side-nav .nav-menu .menu-item{
+    position: relative;
 }
-.side-nav .nav-menu .item-link{
+.side-bar .side-nav .nav-menu .item-link{
+    gap: 8px;
+    opacity: 0.8;
     display: flex;
+    font-size: 13px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    letter-spacing: 1px;    
     align-items: center;
     justify-content: center;
 }
-.item-link .item-link-txt{
-    display: none;
-    color: currentColor;
-}
-.main-header .section-nav .nav-list{
-    display: none;
-}
-.main-header .section-account .row{
-    align-items: center;
-    justify-content: center;
-}
-.main-header .section-account .col{
-    gap: 1.3rem;
-    align-items: center;
-}
-.main-header .section-account .profile img{
+/* Accont */
+.side-bar .profile img{
     height: 25px;
     padding: 0 2px;
     border-radius: 50%;
     color: var(--fg-col);
     background-color: var(--fg-deselect);
 }
+.side-bar .account > .col .row{
+    gap: 0.75rem;
+    padding: 0.75rem 0;
+    align-items: center;
+}
+/* Side Bar Display OFF */
+.side-bar > .row .playlist,
+.side-bar > .row .logo-lg,
+.side-bar .section-nav .nav-list,
+.side-bar .item-link .item-link-txt{
+    display: none;
+}
+/* End Side Bar Display OFF */
 /* Header App */
 .header-plan{
     display: flex;
@@ -181,47 +190,107 @@ body{
     Responsive 
 */
 @media screen and (min-width: 550px){
-    /* Side Header */
-    .main-header{
-        min-width: 230px;
-    }
-    .main-header > .row{
-        justify-content: flex-start;
-    }
-    .row.nav-menu{
-        flex-direction: column;
-    }
-    .main-header .section-nav .logo{
-        width: 100%;
-        justify-content: flex-start;
-    }
-    .logo-lg{
+    /* Components */
+    .active::before{
+        position: absolute;
+        top: 0;
+        left: 0;
         display: block;
+        content: '';
+        height: 2rem;
+        width: 3px;
+        background-color: var(--fg-select-decoration);
     }
-    .logo-sm{
-        display: none;
+    .separe::after{
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: block;
+        content: '';
+        height: 1px;
+        width: 190px;
+        background-color: var(--fg-deselect);
     }
-    .item-link .item-link-txt{
-        display: inline-block;
+    /* Side Header */
+    .app .side-bar{
+        padding-top: 20px;
+        flex-basis: 230px;
     }
-    .main-header .side-nav .nav-menu{
+    .app .side-bar > .row {
         justify-content: flex-start;
     }
-    .side-nav .nav-menu .item-link{
-        gap: 1rem;
-        justify-content: flex-start;
-    }
-    .main-header .section-account .row{
-        gap: 1rem;
-        justify-content: flex-start;
-    }
-    .main-header .section-account .col{
+    .app .side-bar > .row .col{
         align-items: flex-start;
     }
+    .side-bar .side-nav{
+        flex-grow: 0;
+    }
+    .side-bar .logo,
+    .side-bar .playlist,
+    .side-bar .account{
+        padding-left: 20px;
+    }
+    .side-bar .side-nav .nav-menu .item-link{
+        padding: 5px 0 5px 20px;
+    }
+    /* Playlist */
+    .side-bar .playlist-head{
+        padding: 1.4rem 0;
+    }
+    .side-bar .playlist-head .head-title{
+        font-weight: bold;
+    }
+    .side-bar .playlist-head .head-button{
+        padding: 15px 0 0;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    .side-bar .playlist-head .head-button::before{
+        content: '+';
+        display: block;
+        padding: 0 10px;
+        font-size: 30px;
+        padding-top: 3px;
+        color: var(--bg-side-col);
+        background-color: var(--fg-deselect);
+    }
+    .side-bar .side-list .menu-item{
+        padding-bottom: 1.4rem;
+    }
+    .side-bar .playlist-head .head-button,
+    .side-bar .side-list .menu-item,
+    .side-bar .account > .col .download{
+        font-size: 1rem;
+        opacity: 0.7;
+    }
+    /* Account */
+    .side-bar .account > .col .download{
+        position: relative;
+    }
+    .side-bar .account > .col .profile{
+        font-weight: bold;
+    }
+    /* Side Bar Display Off and On */
+    .side-bar > .row .logo-lg{
+        display: block;
+    }
+    .side-bar > .row .logo-sm{
+        display: none;
+    }
+    .side-bar > .row .playlist{
+        flex-grow: 1;
+        display: block;
+    }
+    .side-bar .item-link .item-link-txt{
+        display: block;
+    }
+    /* Side Bar Display Off and On */
     /* 
         Toolabr
      */
     .toolbar .row .col{
-        min-width: 180px;
+        flex-basis: 180px;
     }
 }
