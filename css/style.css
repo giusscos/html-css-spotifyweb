@@ -28,7 +28,7 @@ button{
 }
 :root{
     --bg-col: #141922;
-    --bg-nav-col: #080B12;
+    --bg-nav-col: #080B12dd;
     --bg-tool-col: #282828;
     --bg-side-col: #000;
     --fg-col: #fff;
@@ -80,6 +80,30 @@ body{
     transform: translateX(-50%);
     background-color: var(--fg-select-decoration);
 }
+/* card */
+.card{
+    gap: 1rem;
+    text-align: center;
+    align-items: center;
+    flex-basis: calc((100% - (10px * 1)) / 2);
+}
+.card-img{
+    min-width: 150px;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    object-position: center;
+}
+.card-img.artist{
+    border-radius: 50%;
+}
+.card-title{
+    font-size: 1rem;
+    line-height: 1.1rem;
+}
+.card-subtitle{
+    font-size: 0.8rem
+}
+/* toolbar */
 .player .bar{
     height: 4px;
     width: 100%;
@@ -120,10 +144,11 @@ body{
 .app{
     flex-grow: 1;
     display: flex;
-    overflow-y: auto;
+    overflow-y: hidden;
 }
 /* Side Header */
 .app .side-bar{
+    z-index: 100;
     display: flex;
     flex-basis: 50px;
     flex-shrink: 0;
@@ -182,8 +207,13 @@ body{
 /* End Side Bar Display OFF */
 /* Header App */
 .header-plan{
+    z-index: 99;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
     display: flex;
-    padding: 0 5px;
+    padding: 0 25px;
     min-height: 90px;
     align-items: center;
     color: var(--fg-col);
@@ -203,8 +233,12 @@ body{
 .main-container{
     flex-grow: 1;
     flex-basis: 0;
+    overflow: auto;
     color: var(--fg-col);
     background-color: var(--bg-col);
+}
+.main-content{
+    padding-top: 90px;
 }
 .container{
     padding: 0 20px;
@@ -225,6 +259,25 @@ body{
 }
 .main-content .main-content-navlist .item-link{
     opacity: var(--deselect-item);
+}
+/* Song */
+.songs{
+    padding-top: 3rem;
+}
+.title-category{
+    padding-bottom: 2rem;
+}
+.title-category .title{
+    font-size: 1.5rem;
+}
+.title-category .subtitle{
+    color: var(--fg-deselect);
+    font-size: 0.9rem;
+}
+.section-card{
+    gap: 10px;
+    padding-bottom: 3rem;
+    justify-content: flex-start;
 }
 /*
     Toolabr
@@ -263,7 +316,7 @@ body{
 }
 .toolbar .who-is .info-song-list{
     font-weight: bold;
-    padding: 0 1.5rem 0 0.7rem;
+    padding: 0 1.2rem 0 0.7rem;
 }
 .who-is .info-song-list .author-name{
     padding-bottom: 5px;
@@ -420,7 +473,7 @@ body{
     .side-bar .item-link .item-link-txt{
         display: block;
     }
-    /* Side Bar Display Off and On */
+    /* End Side Bar Display Off and On */
     /*
         Toolabr
      */
@@ -442,5 +495,10 @@ body{
      /* control */
      .toolbar .control > .row{
         padding-left: 5px;
+    }
+}
+@media screen and (min-width: 880px){
+    .card{
+        flex-basis: calc((100% - (10px * 6)) / 6);
     }
 }
