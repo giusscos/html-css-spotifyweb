@@ -85,15 +85,16 @@ body{
     gap: 1rem;
     text-align: center;
     align-items: center;
-    flex-basis: calc((100% - (10px * 1)) / 2);
+    flex-basis: calc((100% - 10px) / 2);
+}
+.card-img-container{
+    min-width: 140px;
 }
 .card-img{
-    min-width: 150px;
-    aspect-ratio: 1/1;
-    object-fit: cover;
+    object-fit: contain;
     object-position: center;
 }
-.card-img.artist{
+.card-img-container.artist{
     border-radius: 50%;
 }
 .card-title{
@@ -104,38 +105,43 @@ body{
     font-size: 0.8rem
 }
 /* toolbar */
-.player .bar{
-    height: 4px;
-    width: 100%;
-    border-radius: 3px;
+.bar.slide-active{
+    flex-grow: 1;
+    cursor: pointer;
+    flex-basis: 100px;
     background-color: var(--fg-deselect);
 }
-.control .bar{
-    height: 4px;
-    width: 85px;
-    border-radius: 3px;
-    background-color: var(--fg-deselect);
+.bar.slide-active:hover .current-time{
+    background-color: var(--fg-select-decoration);
 }
-.bar.slide-active::after{
-    position: absolute;
-    display: block;
-    content: '';
-    width: 17%;
+.bar.slide-active:hover .drag-dot{
+    opacity: 1;
+}
+.bar.slide-active .current-time{
+    width: 30%;
     height: 4px;
-    border-radius: 3px;
+    position: relative;
     background-color: var(--fg-col);
-    /* animation: slide ease-in-out 5s infinite; */
+    /* animation: slide 40s linear forwards; */
+}
+.bar.slide-active .drag-dot{
+    position: absolute;
+    opacity: 0;
+    top: 50%;
+    right: -2px;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    transform: translateY(-50%);
+    background-color: var(--fg-col);
+    transition: opacity 100ms ease-in-out;
 }
 @keyframes slide {
     0%{
         width: 17%;
     }
-    50%{
-        width: 100%;
-
-    }
     100%{
-        width: 0%;
+        width: 100%;
     }
 }
 /*
@@ -175,7 +181,6 @@ body{
 }
 .side-bar .side-nav .nav-menu .item-link{
     gap: 8px;
-    opacity: var(--deselect-item);
     display: flex;
     font-size: 13px;
     padding-top: 5px;
@@ -183,6 +188,14 @@ body{
     letter-spacing: 1px;
     align-items: center;
     justify-content: center;
+    opacity: var(--deselect-item);
+    transition: opacity 200ms ease-in-out;
+}
+.side-bar .side-nav .nav-menu .item-link:hover{
+    opacity: 1;
+}
+.side-bar .side-nav .nav-menu .item-link img{
+    height: 1.5rem;
 }
 /* Accont */
 .side-bar .profile img{
@@ -229,6 +242,9 @@ body{
     padding: 0 2.7rem;
     text-align: center;
 }
+.plan:hover{
+    transform: scale(1.2);
+}
 /* Main Container  */
 .main-container{
     flex-grow: 1;
@@ -260,6 +276,9 @@ body{
 .main-content .main-content-navlist .item-link{
     opacity: var(--deselect-item);
 }
+.main-content .main-content-navlist .item-link:hover{
+    opacity: 1;
+}
 /* Song */
 .songs{
     padding-top: 3rem;
@@ -278,6 +297,33 @@ body{
     gap: 10px;
     padding-bottom: 3rem;
     justify-content: flex-start;
+}
+.section-card .card-img-container{
+    position: relative;
+    overflow: hidden;
+}
+.section-card .card-img-container .player-icon-control{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    background-color: #000000aa;
+    transition: opacity 200ms ease-in-out;
+}
+.section-card .card:hover .player-icon-control{
+    opacity: 1;
+}
+.section-card .card-img-container .player-icon-control > i{
+    padding: 3px 4px 2px 8px;
+    font-size: 30px;
+    border-radius: 50%;
+    border: 5px solid var(--fg-col);
 }
 /*
     Toolabr
@@ -318,6 +364,9 @@ body{
     font-weight: bold;
     padding: 0 1.2rem 0 0.7rem;
 }
+.toolbar .who-is .info-song-list .info-song-item > *:hover{
+    text-decoration: 2px underline;
+}
 .who-is .info-song-list .author-name{
     padding-bottom: 5px;
 }
@@ -328,7 +377,12 @@ body{
     gap: 5px;
 }
 .who-is .saves-container i{
+    cursor: pointer;
     opacity: var(--deselect-item);
+    transition: opacity 200ms ease-in-out;
+}
+.who-is .saves-container i:hover{
+    opacity: 1;
 }
 /* Player */
 .toolbar .player > .row{
@@ -337,15 +391,20 @@ body{
 .toolbar .player > .row > .col {
     gap: 1rem;
 }
-.toolbar .player .button-pause{
-    position: relative;
+.toolbar .player .player-icon-control{
+    cursor: pointer;
 }
-.toolbar .player .player-icon-control > .pause{
-    padding: 2px 3px 2px 5.5px;
+.toolbar .player .player-icon-control.big{
+    padding: 4px 5px 2px 7px;
     margin: 0 10px;
     border: 4px solid;
-    font-size: 18px;
     border-radius: 50%;
+}
+.toolbar .player .player-icon-control.big:hover{
+    transform: scale(1.2);
+}
+.toolbar .player .player-icon-control.big > i{
+    font-size: 1.3rem;
 }
 .toolbar .player .player-icon-control > i{
     font-size: 1rem;
@@ -368,10 +427,6 @@ body{
     padding-left: 20px;
     padding-right: 10px;
     justify-content: flex-end;
-}
-.toolbar .player .player-slide-control,
-.toolbar .control .slide-control-volume{
-    position: relative;
 }
 /*
     Responsive
@@ -398,6 +453,9 @@ body{
         height: 1px;
         width: 190px;
         background-color: var(--fg-deselect);
+    }
+    .card-img-container{
+        min-width: 160px;
     }
     /* Side Header */
     .app .side-bar{
@@ -429,19 +487,15 @@ body{
         font-weight: bold;
     }
     .side-bar .playlist-head .head-button{
-        padding: 15px 0 0;
-        display: flex;
-        align-items: center;
         gap: 10px;
+        display: flex;
+        cursor: pointer;
+        padding: 15px 0 0;
+        align-items: center;
     }
-    .side-bar .playlist-head .head-button::before{
-        content: '+';
-        display: block;
-        padding: 0 10px;
-        font-size: 30px;
-        padding-top: 3px;
-        color: var(--bg-side-col);
-        background-color: var(--fg-deselect);
+    .side-bar .playlist-head .head-button i{
+        font-size: 2.5rem;
+        opacity: var(--deselect-item);
     }
     .side-bar .side-list .menu-item{
         padding-bottom: 1.4rem;
@@ -451,6 +505,12 @@ body{
     .side-bar .account > .col .download{
         font-size: 1rem;
         opacity: var(--deselect-item);
+        transition: opacity 200ms ease-in-out;
+    }
+    .side-bar .playlist-head .head-button:hover,
+    .side-bar .side-list .menu-item:hover,
+    .side-bar .account > .col .download:hover{
+        opacity: 1;
     }
     /* Account */
     .side-bar .account > .col .download{
@@ -497,8 +557,8 @@ body{
         padding-left: 5px;
     }
 }
-@media screen and (min-width: 880px){
+@media screen and (min-width: 640px){
     .card{
-        flex-basis: calc((100% - (10px * 6)) / 6);
+        flex-basis: calc((100% - 50px) / 6);
     }
 }
