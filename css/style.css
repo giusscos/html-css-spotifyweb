@@ -40,6 +40,7 @@ button{
     Layout
 */
 body{
+    min-width: 500px;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -85,7 +86,7 @@ body{
     gap: 1rem;
     text-align: center;
     align-items: center;
-    flex-basis: calc((100% - 10px) / 2);
+    flex-basis: calc(((100% - 50px) / 12) * 6);
 }
 .card-img-container{
     min-width: 140px;
@@ -454,9 +455,6 @@ body{
         width: 190px;
         background-color: var(--fg-deselect);
     }
-    .card-img-container{
-        min-width: 160px;
-    }
     /* Side Header */
     .app .side-bar{
         padding-top: 20px;
@@ -559,6 +557,11 @@ body{
 }
 @media screen and (min-width: 640px){
     .card{
-        flex-basis: calc((100% - 50px) / 6);
+        flex-basis: calc(((100% - 30px) / 12) * 3);
+    }
+}
+@media screen and (min-width: 880px){
+    .card{
+        flex-basis: calc(((100% - 50px) / 12) * 2);
     }
 }
